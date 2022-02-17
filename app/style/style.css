@@ -1,0 +1,288 @@
+@import url(c:\Users\utilisateur\Documents\DUT\Sem 4\INFONUAGIQUE\devoir-app-serverless-2022-CreatibOfficiel\app\style\normalize.css);
+@font-face {
+  font-family: 'BebasNeueRegular';
+  src: url("font/Bebas_Neue/BebasNeue-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: 'RobotoRegular';
+  src: url("font/Roboto/Roboto-Regular.ttf") format("truetype");
+}
+
+:root {
+  --theme-color-red: #ed1e79;
+  --theme-color-blue: #29abe2;
+  --theme-color-purple: #9061ab;
+  --theme-color-bg1: #f2f2f2;
+  --theme-color-bg2: #c7dae2;
+  --theme-color-text: #252627;
+  --theme-border-radius: 5px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 36px;
+}
+
+#loader {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--theme-color-bg2);
+  background-image: url("images/logo_nobg@1x.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 300px;
+}
+
+#loader h1 {
+  color: var(--theme-color-red);
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 1.5rem;
+}
+
+#loader h2 {
+  color: var(--theme-color-blue);
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 1rem;
+}
+
+#loader p {
+  color: var(--theme-color-purple);
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 0.8rem;
+}
+
+.button-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.button-wrapper .button {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  margin: 15px;
+  border: 0px;
+  border-radius: var(--theme-border-radius);
+  background: var(--theme-color-red);
+  color: var(--theme-color-bg1);
+  text-decoration: none;
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.button-wrapper:hover {
+  opacity: 0.8;
+}
+
+#page {
+  position: relative;
+  background-color: var(--theme-color-bg1);
+  color: var(--palette-color-text);
+  padding: 5%;
+  min-height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page h1 {
+  font-family: 'BebasNeueRegular', sans-serif;
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 1.8rem;
+  text-align: center;
+  color: var(--theme-color-red);
+}
+
+#page table#recipe-view {
+  width: 100%;
+  margin: 15px;
+  background-color: var(--theme-color-bg2);
+  border-radius: var(--theme-border-radius);
+}
+
+#page table#recipe-view td {
+  padding: 0.5rem;
+}
+
+#page table#recipe-view td.row-name {
+  font-weight: bold;
+  width: 25%;
+  color: var(--theme-color-blue);
+}
+
+#page table#recipe-view td.row-value {
+  color: var(--theme-color-text);
+}
+
+#page ul {
+  background-color: var(--theme-color-bg2);
+  border-radius: var(--theme-border-radius);
+  list-style: none;
+  width: 100%;
+  padding: 0;
+  margin: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+#page ul li {
+  padding: 0.5rem;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+
+#page ul li a {
+  width: 100%;
+  color: var(--theme-color-blue);
+  font-weight: bold;
+  text-decoration: none;
+  font-family: 'RobotoRegular', sans-serif;
+}
+
+#page ul li:hover {
+  opacity: 0.8;
+}
+
+#page form {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#page form .form-row {
+  width: 100%;
+}
+
+#page form .form-row label {
+  display: block;
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 0.8rem;
+  color: var(--theme-color-text);
+}
+
+#page form .form-row input,
+#page form .form-row textarea {
+  width: 100%;
+  border: 0px;
+  padding: 15px;
+  border-radius: var(--theme-border-radius);
+  background: var(--theme-color-bg2);
+  color: var(--theme-color-text);
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 0.8rem;
+}
+
+#page form .form-row input:focus,
+#page form .form-row textarea:focus {
+  outline: var(--theme-color-blue) solid 1px;
+  color: var(--theme-color-blue);
+}
+
+#page form .form-row textarea {
+  resize: vertical;
+  height: 10rem;
+}
+
+footer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: var(--theme-color-bg2);
+  color: var(--theme-color-text);
+  padding: 0.5rem 0;
+  font-family: 'RobotoRegular', sans-serif;
+  font-size: 0.5rem;
+}
+
+footer p {
+  margin: 0;
+}
+/*# sourceMappingURL=style.css.map */

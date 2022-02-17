@@ -1,0 +1,101 @@
+﻿<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Liste des recettes</title>
+  <link rel="stylesheet" href="style/style.css">
+  <script src="apiUrl.js"></script>
+  <script src="Recipe.js"></script>
+  <script src="RecipeDAO.js"></script>
+  <script src="ViewRecipe.js"></script>
+  <script src="ViewListRecipe.js"></script>
+  <script src="ViewAddRecipe.js"></script>
+  <!--
+  https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
+  Scripts loaded using the defer attribute will run in the order they appear
+  in the page and execute them as soon as the script and content are downloaded
+  -->
+  <script defer src="Application.js"></script>
+
+</head>
+
+<body>
+  <section id="page">
+    <div id="loader">
+      <h1>Recipe book</h1>
+      <h2>Loading...</h2>
+      <p>An app from :<br>Thibaud Chaussabel Blachier,<br>Mathéo Galuba<br>and Clément Gehin</p>
+    </div>
+
+    <script type="plain/text" id="html-listView">
+      <h1>Recipe book</h1>
+      <ul id="recipe-list">
+        <li><a href="#recipe/{Recipe.id}" class="recipe-list-item">{Recipe.name}</a></li>
+      </ul>
+      <div class="button-wrapper">
+        <a class="button" href="#adding">Add a new recipe</a>
+      </div>
+    </script>
+
+    <script type="plain/text" id="html-recipeView">
+      <h1 id="recipe-name-title">{name}</h1>
+      <table id="recipe-view">
+        <tr>
+          <td class="row-name">Cooking time</td>
+          <td class="row-value">{cooking-time} minutes</td>
+        </tr>
+        <tr>
+          <td class="row-name">Baking time</td>
+          <td class="row-value">{baking-time} minutes</td>
+        </tr>
+        <tr>
+          <td class="row-name">Ingredients list</td>
+          <td class="row-value">{ingredients-list}</td>
+        </tr>
+        <tr>
+          <td class="row-name">Steps</td>
+          <td class="row-value">{steps-list}</td>
+        </tr>
+      </table>
+      <div class="button-wrapper">
+        <a href="#" class="button">Back</a>
+      </div>
+    </script>
+
+    <script type="plain/text" id="html-addingView">
+      <h1>Add a new recipe</h1>
+      <form id="adding-form">
+        <div class="form-row">
+          <label for="recipe-name">Recipe name</label>
+          <input type="text" id="recipe-name"/>
+        </div>
+        <div class="form-row">
+          <label for="recipe-cooking">Cooking time</label>
+          <input type="number" id="recipe-cooking-time"/>
+        </div>
+        <div class="form-row">
+          <label for="recipe-baking">Baking time</label>
+          <input type="number" id="recipe-baking-time"/>
+        </div>
+        <div class="form-row">
+          <label for="recipe-ingredients">Ingredients list</label>
+          <textarea id="recipe-ingredients-list"></textarea>
+        </div>
+        <div class="form-row">
+          <label for="recipe-steps">Steps</label>
+          <textarea id="recipe-steps-list"></textarea>
+        </div>
+        <div class="button-wrapper">
+          <button class="button" type="submit">Save</button>
+          <a class="button" href="#">Cancel</a>
+        </div>
+      </form>
+    </script>
+  </section>
+
+  <footer>
+    <p>An app from Thibaud Chaussabel Blachier, Mathéo Galuba and Clément Gehin</p>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+@import "normalize.css";
+@font-face {
+	font-family: 'BebasNeueRegular';
+	src: url('font/Bebas_Neue/BebasNeue-Regular.ttf') format('truetype');
+}
+@font-face {
+	font-family: 'RobotoRegular';
+	src: url('font/Roboto/Roboto-Regular.ttf') format('truetype');
+}
+:root {
+	--theme-color-red: #ed1e79;
+	--theme-color-blue: #29abe2;
+	--theme-color-purple: #9061ab;
+	--theme-color-bg1: #f2f2f2;
+	--theme-color-bg2: #c7dae2;
+	--theme-color-text: #252627;
+	--theme-border-radius: 5px;
+}
+body {
+	margin: 0;
+	padding: 0;
+}
+html {
+	font-family: 'RobotoRegular', sans-serif;
+	font-size: 36px;
+}
+#loader {
+	position: fixed;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: var(--theme-color-bg2);
+	background-image: url("images/logo_nobg@1x.png");
+	background-repeat: no-repeat;
+	background-position: bottom right;
+	background-size: 300px;
+	h1 {
+		color: var(--theme-color-red);
+		font-family: 'BebasNeueRegular', sans-serif;
+		font-size: 1.5rem;
+	}
+	h2 {
+		color: var(--theme-color-blue);
+		font-family: 'RobotoRegular', sans-serif;
+		font-size: 1rem;
+	}
+	p {
+		color: var(--theme-color-purple);
+		font-family: 'RobotoRegular', sans-serif;
+		font-size: 0.8rem;
+	}
+}
+.button-wrapper {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: 1rem;
+	opacity: 1;
+	transition: opacity 0.2s ease-in-out;
+	.button {
+		display: inline-block;
+		padding: 0.2rem 0.4rem;
+		margin: 15px;
+		border: 0px;
+		border-radius: var(--theme-border-radius);
+		background: var(--theme-color-red);
+		color: var(--theme-color-bg1);
+		text-decoration: none;
+		font-family: 'BebasNeueRegular', sans-serif;
+		font-size: 1rem;
+		cursor: pointer;
+	}
+	&:hover {
+		opacity: 0.8;
+	}
+}
+#page {
+	position: relative;
+	background-color: var(--theme-color-bg1);
+	color: var(--palette-color-text);
+	padding: 5%;
+	min-height: 100vh;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	h1 {
+		font-family: 'BebasNeueRegular', sans-serif;
+		font-size: 3rem;
+		font-weight: normal;
+		line-height: 1.8rem;
+		text-align: center;
+		color: var(--theme-color-red);
+	}
+	table#recipe-view {
+		width: 100%;
+		margin: 15px;
+		background-color: var(--theme-color-bg2);
+		border-radius: var(--theme-border-radius);
+		td {
+			padding: 0.5rem;
+			&.row-name {
+				font-weight: bold;
+				width: 25%;
+				color: var(--theme-color-blue);
+			}
+			&.row-value {
+				color: var(--theme-color-text);
+			}
+		}
+	}
+	ul {
+		background-color: var(--theme-color-bg2);
+		border-radius: var(--theme-border-radius);
+		list-style: none;
+		width: 100%;
+		padding: 0;
+		margin: 15px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: left;
+		li {
+			padding: 0.5rem;
+			opacity: 1;
+			transition: opacity 0.2s ease-in-out;
+			a {
+				width: 100%;
+				color: var(--theme-color-blue);
+				font-weight: bold;
+				text-decoration: none;
+				font-family: 'RobotoRegular', sans-serif;
+			}
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+	}
+	form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.form-row {
+			width: 100%;
+			label {
+				display: block;
+				font-family: 'RobotoRegular', sans-serif;
+				font-size: 0.8rem;
+				color: var(--theme-color-text);
+			}
+			input,
+			textarea {
+				width: 100%;
+				border: 0px;
+				padding: 15px;
+				border-radius: var(--theme-border-radius);
+				background: var(--theme-color-bg2);
+				color: var(--theme-color-text);
+				font-family: 'RobotoRegular', sans-serif;
+				font-size: 0.8rem;
+			}
+			input:focus,
+			textarea:focus {
+				outline: var(--theme-color-blue) solid 1px;
+				color: var(--theme-color-blue);
+			}
+			textarea {
+				resize: vertical;
+				height: 10rem;
+			}
+		}
+	}
+}
+footer {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: var(--theme-color-bg2);
+	color: var(--theme-color-text);
+	padding: 0.5rem 0;
+	font-family: 'RobotoRegular', sans-serif;
+	font-size: 0.5rem;
+	p {
+		margin: 0;
+	}
+}
