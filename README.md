@@ -35,7 +35,7 @@ Installer [npm](https://www.npmjs.com/get-npm).
 
 Cloner le projet sur votre machine.
 ``` bash
-git clone https://github.com/CreatibOfficiel/ProjectTracker
+git clone https://github.com/CreatibOfficiel/ProjectTracker.git
 ```
 
 Installer les dépendances.
