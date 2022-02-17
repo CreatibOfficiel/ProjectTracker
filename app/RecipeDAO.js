@@ -55,3 +55,64 @@
             });
     }
 }
+
+/*
+class CadeauDAO{
+  //cd /opt/bitnami/apache2/logs/
+  constructor(){
+    this.URL = 'http://3.229.104.111/'
+  }
+
+  lister(action){
+    fetch(this.URL + 'lister.php')
+      .then(response => response.text())
+      .then(data =>
+        {
+          console.log(data);
+          data = data == null ? null : JSON.parse(data)
+          let listeCadeau = [];
+          for(let position in data){
+            let cadeau = new Cadeau(data[position].nom,
+                                    data[position].marque,
+                                    data[position].description,
+                                    data[position].id);
+
+            console.log(cadeau);
+            listeCadeau.push(cadeau);
+          }
+          action(listeCadeau);
+        });
+  }
+
+  chercher(id, action){
+    fetch(this.URL + 'chercher-par-id.php' + '?id=' + id)
+      .then(response => response.json())
+      .then(data =>
+        {
+          console.log(data);
+          let cadeau = new Cadeau(data.nom,
+                                  data.marque,
+                                  data.description,
+                                  data.id);
+          action(cadeau);
+        });
+  }
+
+  ajouter(cadeau, action){
+    fetch(this.URL + 'ajouter.php',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/x-www-form-urlencoded'
+        },
+        body: JSON.stringify(cadeau),
+      })
+      .then(response => response.text())
+      .then(data =>
+        {
+          console.log('Détail:', data);
+          action();
+        });
+  }
+}
+ */
