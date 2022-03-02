@@ -22,7 +22,7 @@
     let ingredients = document.getElementById("recipe-ingredients-list").value;
     let steps = document.getElementById("recipe-steps-list").value;
 
-    this.addRecipe(new Recipe(name, cooking, baking, ingredients, steps, null));
+    this.addRecipe(new Project(name, cooking, baking, ingredients, steps, null));
 
   }
 }

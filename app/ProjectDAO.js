@@ -1,4 +1,4 @@
-﻿class RecipeDAO {
+﻿class ProjectDAO {
     getAll(action) {
         console.log(apiUrl.getAll)
         fetch(apiUrl.getAll)
@@ -7,7 +7,7 @@
                 console.log(data);
                 let listRecipe = [];
                 for (let position in data) {
-                    let recipe = new Recipe(data[position].recipeName,
+                    let recipe = new Project(data[position].recipeName,
                         data[position].recipeCookingTime,
                         data[position].recipeBakingTime,
                         data[position].recipeIngredientsList,
@@ -26,7 +26,7 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                let recipe = new Recipe(data.recipeName,
+                let recipe = new Project(data.recipeName,
                     data.recipeCookingTime,
                     data.recipeBakingTime,
                     data.recipeIngredientsList,
@@ -64,7 +64,7 @@ class CadeauDAO{
   }
 
   lister(action){
-    fetch(this.URL + 'lister.php')
+    fetch(this.URL + 'List.php')
       .then(response => response.text())
       .then(data =>
         {
@@ -85,7 +85,7 @@ class CadeauDAO{
   }
 
   chercher(id, action){
-    fetch(this.URL + 'chercher-par-id.php' + '?id=' + id)
+    fetch(this.URL + 'SearchById.php' + '?id=' + id)
       .then(response => response.json())
       .then(data =>
         {
@@ -99,7 +99,7 @@ class CadeauDAO{
   }
 
   ajouter(cadeau, action){
-    fetch(this.URL + 'ajouter.php',
+    fetch(this.URL + 'Add.php',
       {
         method: 'POST',
         headers: {

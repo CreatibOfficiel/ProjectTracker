@@ -56,5 +56,5 @@
   }
 }
 
-new Application(window, new ViewListRecipe(), new ViewRecipe(), new ViewAddRecipe(), new RecipeDAO());
+new Application(window, new ViewListRecipe(), new ViewRecipe(), new ViewAddRecipe(), new ProjectDAO());
 

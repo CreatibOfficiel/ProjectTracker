@@ -6,10 +6,10 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 require_once "Project.php";
 require_once "ProjectDAO.php";
 
-$cadeauJSON = file_get_contents('php://input');
-$cadeauObjet = json_decode( $cadeauJSON );
-$cadeau = new Cadeau($cadeauObjet);
+$projectJSON = file_get_contents('php://input');
+$projectObjet = json_decode( $projectJSON );
+$project = new Project($projectObjet);
 
-$id = CadeauDAO::ajouter($cadeau);
+$id = CadeauDAO::ajouter($project);
 echo $id;
 

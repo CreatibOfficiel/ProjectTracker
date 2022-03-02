@@ -5,8 +5,8 @@
   <title>Liste des recettes</title>
   <link rel="stylesheet" href="style/style.css">
   <script src="apiUrl.js"></script>
-  <script src="Recipe.js"></script>
-  <script src="RecipeDAO.js"></script>
+  <script src="Project.js"></script>
+  <script src="ProjectDAO.js"></script>
   <script src="ViewRecipe.js"></script>
   <script src="ViewListRecipe.js"></script>
   <script src="ViewAddRecipe.js"></script>
@@ -22,15 +22,15 @@
 <body>
   <section id="page">
     <div id="loader">
-      <h1>Recipe book</h1>
+      <h1>Project book</h1>
       <h2>Loading...</h2>
       <p>An app from :<br>Thibaud Chaussabel Blachier,<br>Mathéo Galuba<br>and Clément Gehin</p>
     </div>
 
     <script type="plain/text" id="html-listView">
-      <h1>Recipe book</h1>
+      <h1>Project book</h1>
       <ul id="recipe-list">
-        <li><a href="#recipe/{Recipe.id}" class="recipe-list-item">{Recipe.name}</a></li>
+        <li><a href="#recipe/{Project.id}" class="recipe-list-item">{Project.name}</a></li>
       </ul>
       <div class="button-wrapper">
         <a class="button" href="#adding">Add a new recipe</a>
@@ -66,7 +66,7 @@
       <h1>Add a new recipe</h1>
       <form id="adding-form">
         <div class="form-row">
-          <label for="recipe-name">Recipe name</label>
+          <label for="recipe-name">Project name</label>
           <input type="text" id="recipe-name"/>
         </div>
         <div class="form-row">

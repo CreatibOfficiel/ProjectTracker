@@ -1,4 +1,4 @@
-﻿class Recipe {
+﻿class Project {
   constructor(recipeName, recipeCookingTime, recipeBakingTime, recipeIngredientsList, recipeStepsList, id = null) {
     this.recipeName = recipeName;
     this.recipeCookingTime = recipeCookingTime;
