@@ -1,5 +1,5 @@
 <?php
-class Project implements JsonSerializable
+class project implements JsonSerializable
 {
     public static $filtres =
         array(
@@ -20,7 +20,7 @@ class Project implements JsonSerializable
 
     public function __construct($projectObjet)
     {
-        $tableau = filter_var_array((array) $projectObjet, Project::$filtres);
+        $tableau = filter_var_array((array) $projectObjet, project::$filtres);
         $this->id = $tableau['id'];
         $this->projectName = $tableau['name'];
         $this->author = $tableau['author'];

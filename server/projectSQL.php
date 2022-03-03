@@ -1,5 +1,5 @@
 <?php
-interface ProjectSQL
+interface projectSQL
 {
     const SQL_LISTER          = "SELECT * FROM project;";
     const SQL_CHERCHER_PAR_ID = "SELECT * FROM project WHERE id = :id;";
