@@ -1,10 +1,10 @@
 ﻿class Project {
-  constructor(recipeName, recipeCookingTime, recipeBakingTime, recipeIngredientsList, recipeStepsList, id = null) {
-    this.recipeName = recipeName;
-    this.recipeCookingTime = recipeCookingTime;
-    this.recipeBakingTime = recipeBakingTime;
-    this.recipeIngredientsList = recipeIngredientsList;
-    this.recipeStepsList = recipeStepsList;
+  constructor(projectName, author, description, projectTechnologiesList, projectLink, id = null) {
+    this.projectName = projectName;
+    this.author = author;
+    this.description = description;
+    this.projectTechnologiesList = projectTechnologiesList;
+    this.projectLink = projectLink;
     this.id = id;
   }
 }

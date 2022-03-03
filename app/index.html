@@ -2,14 +2,14 @@
 <html>
 
 <head>
-  <title>Liste des recettes</title>
+  <title>Projects List</title>
   <link rel="stylesheet" href="style/style.css">
   <script src="apiUrl.js"></script>
   <script src="Project.js"></script>
   <script src="ProjectDAO.js"></script>
-  <script src="ViewRecipe.js"></script>
-  <script src="ViewListRecipe.js"></script>
-  <script src="ViewAddRecipe.js"></script>
+  <script src="ViewProject.js"></script>
+  <script src="ViewListProject.js"></script>
+  <script src="ViewAddProject.js"></script>
   <!--
   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
   Scripts loaded using the defer attribute will run in the order they appear
@@ -29,32 +29,32 @@
 
     <script type="plain/text" id="html-listView">
       <h1>Project book</h1>
-      <ul id="recipe-list">
-        <li><a href="#recipe/{Project.id}" class="recipe-list-item">{Project.name}</a></li>
+      <ul id="project-list">
+        <li><a href="#project/{Project.id}" class="project-list-item">{Project.name}</a></li>
       </ul>
       <div class="button-wrapper">
-        <a class="button" href="#adding">Add a new recipe</a>
+        <a class="button" href="#adding">Add a new project</a>
       </div>
     </script>
 
-    <script type="plain/text" id="html-recipeView">
-      <h1 id="recipe-name-title">{name}</h1>
-      <table id="recipe-view">
+    <script type="plain/text" id="html-projectView">
+      <h1 id="project-name-title">{name}</h1>
+      <table id="project-view">
         <tr>
-          <td class="row-name">Cooking time</td>
-          <td class="row-value">{cooking-time} minutes</td>
+          <td class="row-name">Author</td>
+          <td class="row-value">{project-author}</td>
         </tr>
         <tr>
-          <td class="row-name">Baking time</td>
-          <td class="row-value">{baking-time} minutes</td>
+          <td class="row-name">Description</td>
+          <td class="row-value">{project-description}</td>
         </tr>
         <tr>
-          <td class="row-name">Ingredients list</td>
-          <td class="row-value">{ingredients-list}</td>
+          <td class="row-name">Project technologies</td>
+          <td class="row-value">{project-technologies-list}</td>
         </tr>
         <tr>
-          <td class="row-name">Steps</td>
-          <td class="row-value">{steps-list}</td>
+          <td class="row-name">Project link</td>
+          <td class="row-value">{project-link}</td>
         </tr>
       </table>
       <div class="button-wrapper">
@@ -63,27 +63,27 @@
     </script>
 
     <script type="plain/text" id="html-addingView">
-      <h1>Add a new recipe</h1>
+      <h1>Add a new project</h1>
       <form id="adding-form">
         <div class="form-row">
-          <label for="recipe-name">Project name</label>
-          <input type="text" id="recipe-name"/>
+          <label for="project-name">Project name</label>
+          <input type="text" id="project-name"/>
         </div>
         <div class="form-row">
-          <label for="recipe-cooking">Cooking time</label>
-          <input type="number" id="recipe-cooking-time"/>
+          <label for="project-author">Author</label>
+          <input id="author"/>
         </div>
         <div class="form-row">
-          <label for="recipe-baking">Baking time</label>
-          <input type="number" id="recipe-baking-time"/>
+          <label for="project-description">Description</label>
+          <input id="description"/>
         </div>
         <div class="form-row">
-          <label for="recipe-ingredients">Ingredients list</label>
-          <textarea id="recipe-ingredients-list"></textarea>
+          <label for="project-technologies">Technologies list</label>
+          <textarea id="project-technologies-list"></textarea>
         </div>
         <div class="form-row">
-          <label for="recipe-steps">Steps</label>
-          <textarea id="recipe-steps-list"></textarea>
+          <label for="project-link">Link</label>
+          <textarea id="project-link"></textarea>
         </div>
         <div class="button-wrapper">
           <button class="button" type="submit">Save</button>

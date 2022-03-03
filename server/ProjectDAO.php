@@ -8,56 +8,58 @@ class Accesseur
 
     public static function initialiser()
     {
-        $base = 'app-cadeau';
-        $hote = 'app-cadeau.cgg5r0ryyehp.us-east-1.rds.amazonaws.com';
-        $usager = 'sebastien';
-        $motDePasse = 'cegep2022';
+        $base = 'app-liste';
+        $hote = 'ec2-34-234-85-178.compute-1.amazonaws.com';
+        $usager = 'admin';
+        $motDePasse = '7E&TpAPhoSM344YX';
         $nomDeSourceDeDonnees = 'mysql:dbname=' . $base . ';host=' . $hote;
-        CadeauDAO::$baseDeDonnees = new PDO($nomDeSourceDeDonnees, $usager, $motDePasse);
-        CadeauDAO::$baseDeDonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        ProjectDAO::$baseDeDonnees = new PDO($nomDeSourceDeDonnees, $usager, $motDePasse);
+        ProjectDAO::$baseDeDonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 }
 
-class CadeauDAO extends Accesseur implements CadeauSQL
+class ProjectDAO extends Accesseur implements ProjectSQL
 {
     public static function lister()
     {
-        CadeauDAO::initialiser();
+        ProjectDAO::initialiser();
 
-        $demandeListeCadeau = CadeauDAO::$baseDeDonnees->prepare(CadeauDAO::SQL_LISTER);
-        $demandeListeCadeau->execute();
-        $listeCadeauObjet = $demandeListeCadeau->fetchAll(PDO::FETCH_OBJ);
-        //$contratsTableau = $demandeListeCadeau->fetchAll(PDO::FETCH_ASSOC);
-        $listeCadeau = null;
-        foreach($listeCadeauObjet as $cadeauObjet) $listeCadeau[] = new Cadeau($cadeauObjet);
-        return $listeCadeau;
+        $demandeListeProject = ProjectDAO::$baseDeDonnees->prepare(ProjectDAO::SQL_LISTER);
+        $demandeListeProject->execute();
+        $listeProjectObjet = $demandeListeProject->fetchAll(PDO::FETCH_OBJ);
+        //$contratsTableau = $demandeListeProject->fetchAll(PDO::FETCH_ASSOC);
+        $listProject = null;
+        foreach($listeProjectObjet as $projectObjet) $listProject[] = new Project($projectObjet);
+        return $listProject;
     }
 
     public static function chercherParId($id)
     {
-        CadeauDAO::initialiser();
+        ProjectDAO::initialiser();
 
-        $demandeCadeau = CadeauDAO::$baseDeDonnees->prepare(CadeauDAO::SQL_CHERCHER_PAR_ID);
-        $demandeCadeau->bindParam(':id', $id, PDO::PARAM_INT);
-        $demandeCadeau->execute();
-        $cadeauObjet = $demandeCadeau->fetchAll(PDO::FETCH_OBJ)[0];
-        //$contrat = $demandeCadeau->fetch(PDO::FETCH_ASSOC);
-        return new Cadeau($cadeauObjet);
+        $demandeProject = ProjectDAO::$baseDeDonnees->prepare(ProjectDAO::SQL_CHERCHER_PAR_ID);
+        $demandeProject->bindParam(':id', $id, PDO::PARAM_INT);
+        $demandeProject->execute();
+        $projectObjet = $demandeProject->fetchAll(PDO::FETCH_OBJ)[0];
+        //$contrat = $demandeProject->fetch(PDO::FETCH_ASSOC);
+        return new Project($projectObjet);
     }
 
-    public static function ajouter($cadeau)
+    public static function ajouter($project)
     {
-        CadeauDAO::initialiser();
+        ProjectDAO::initialiser();
 
-        $demandeAjoutCadeau = CadeauDAO::$baseDeDonnees->prepare(CadeauDAO::SQL_AJOUTER);
-        $demandeAjoutCadeau->bindValue(':nom', $cadeau->nom, PDO::PARAM_STR);
-        $demandeAjoutCadeau->bindValue(':marque', $cadeau->marque, PDO::PARAM_STR);
-        $demandeAjoutCadeau->bindValue(':description', $cadeau->description, PDO::PARAM_STR);
-        $demandeAjoutCadeau->execute();
-        return CadeauDAO::$baseDeDonnees->lastInsertId();
+        $demandeAjoutProject = ProjectDAO::$baseDeDonnees->prepare(ProjectDAO::SQL_AJOUTER);
+        $demandeAjoutProject->bindValue(':name', $project->name, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':author', $project->author, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':description', $project->description, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':technologies', $project->technologies, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':link', $project->link, PDO::PARAM_STR);
+        $demandeAjoutProject->execute();
+        return ProjectDAO::$baseDeDonnees->lastInsertId();
     }
 
-    public static function modifier($cadeau)
+    public static function modifier($project)
     {
         //TODO
     }

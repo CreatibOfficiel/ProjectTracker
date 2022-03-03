@@ -146,24 +146,24 @@ html {
   color: var(--theme-color-red);
 }
 
-#page table#recipe-view {
+#page table#project-view {
   width: 100%;
   margin: 15px;
   background-color: var(--theme-color-bg2);
   border-radius: var(--theme-border-radius);
 }
 
-#page table#recipe-view td {
+#page table#project-view td {
   padding: 0.5rem;
 }
 
-#page table#recipe-view td.row-name {
+#page table#project-view td.row-name {
   font-weight: bold;
   width: 25%;
   color: var(--theme-color-blue);
 }
 
-#page table#recipe-view td.row-value {
+#page table#project-view td.row-value {
   color: var(--theme-color-text);
 }
 

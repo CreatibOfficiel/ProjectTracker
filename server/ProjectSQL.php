@@ -1,8 +1,8 @@
 <?php
-interface CadeauSQL
+interface ProjectSQL
 {
-    const SQL_LISTER          = "SELECT * FROM cadeau;";
-    const SQL_CHERCHER_PAR_ID = "SELECT * FROM cadeau WHERE id = :id;";
-    const SQL_AJOUTER         = "INSERT INTO cadeau (nom, marque, description) VALUES (:nom, :marque, :description);";
+    const SQL_LISTER          = "SELECT * FROM project;";
+    const SQL_CHERCHER_PAR_ID = "SELECT * FROM project WHERE id = :id;";
+    const SQL_AJOUTER         = "INSERT INTO project (nom, marque, description) VALUES (:name, :author, :description, :technologies, :link);";
     const SQL_MODIFIER        = ""; //TODO
 }

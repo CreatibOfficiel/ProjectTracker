@@ -9,10 +9,10 @@ const querystring = require('querystring');
 exports.handler = async (event) => {
     const postdata = querystring.parse(event.body);
 
-    let recipe = null;
-    let recipejson = postdata["recipejson"];
-    if(recipejson){
-        recipe = JSON.parse(recipejson);
+    let project = null;
+    let projectjson = postdata["projectjson"];
+    if(projectjson){
+        project = JSON.parse(projectjson);
     }
 
     let response = {
@@ -20,26 +20,26 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body : "No recipe received",
+        body : "No project received",
     };
 
-    if (recipe == null) {
+    if (project == null) {
         return response;
     }
 
-    recipe.id = Date.now();
+    project.id = Date.now();
 
     const params = {
-        Bucket: "recipe-cegep",
-        Key: "list-recipe.json",
+        Bucket: "project-cegep",
+        Key: "list-project.json",
     };
 
     let data = await s3.getObject(params).promise();
-    let listRecipeJson = data.Body.toString('utf-8');
-    const listRecipe = JSON.parse(listRecipeJson);
-    listRecipe.push(recipe);
-    listRecipeJson = JSON.stringify(listRecipe);
-    params.Body  = listRecipeJson;
+    let listProjectJson = data.Body.toString('utf-8');
+    const listProject = JSON.parse(listProjectJson);
+    listProject.push(project);
+    listProjectJson = JSON.stringify(listProject);
+    params.Body  = listProjectJson;
     data = await s3.putObject(params).promise();
 
     response = {
@@ -47,7 +47,7 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: recipe.id
+        body: project.id
     };
 
     return response;

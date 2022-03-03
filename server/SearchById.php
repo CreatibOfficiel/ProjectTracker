@@ -7,6 +7,6 @@ header('Content-Type: application/json; charset=utf-8');
 require_once "Project.php";
 require_once("ProjectDAO.php");
 
-$cadeau = new Cadeau($_GET);
-$cadeau = CadeauDAO::chercherParId($cadeau->id);
-echo json_encode($cadeau);
+$project = new Project($_GET);
+$project = ProjectDAO::chercherParId($project->id);
+echo json_encode($project);

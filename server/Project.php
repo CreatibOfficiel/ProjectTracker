@@ -4,23 +4,29 @@ class Project implements JsonSerializable
     public static $filtres =
         array(
             'id' => FILTER_VALIDATE_INT,
-            'nom' => FILTER_SANITIZE_ENCODED,
-            'marque' => FILTER_SANITIZE_ENCODED,
-            'description' => FILTER_SANITIZE_ENCODED
+            'name' => FILTER_SANITIZE_ENCODED,
+            'author' => FILTER_SANITIZE_ENCODED,
+            'description' => FILTER_SANITIZE_ENCODED,
+            'technologies' => FILTER_SANITIZE_ENCODED,
+            'link' => FILTER_SANITIZE_ENCODED
         );
 
     protected $id;
-    protected $nom;
-    protected $marque;
+    protected $projectName;
+    protected $author;
     protected $description;
+    protected $projectTechnologiesList;
+    protected $projectLink;
 
-    public function __construct($cadeauObjet)
+    public function __construct($projectObjet)
     {
-        $tableau = filter_var_array((array) $cadeauObjet, Cadeau::$filtres);
+        $tableau = filter_var_array((array) $projectObjet, Project::$filtres);
         $this->id = $tableau['id'];
-        $this->nom = $tableau['nom'];
-        $this->marque = $tableau['marque'];
+        $this->projectName = $tableau['name'];
+        $this->author = $tableau['author'];
         $this->description = $tableau['description'];
+        $this->projectTechnologiesList = $tableau['technologies'];
+        $this->projectLink = $tableau['link'];
     }
 
     public function __set($propriete, $valeur)
@@ -30,14 +36,20 @@ class Project implements JsonSerializable
             case 'id':
                 $this->id = $valeur;
                 break;
-            case 'nom':
-                $this->nom = $valeur;
+            case 'name':
+                $this->projectName = $valeur;
                 break;
-            case 'marque':
-                $this->marque = $valeur;
+            case 'author':
+                $this->author = $valeur;
                 break;
             case 'description':
                 $this->description = $valeur;
+                break;
+            case 'technologies':
+                $this->projectTechnologiesList = $valeur;
+                break;
+            case 'link':
+                $this->projectLink = $valeur;
                 break;
         }
     }
@@ -53,9 +65,11 @@ class Project implements JsonSerializable
         //Define the fields we need
         return array(
             "id"=>$this->id,
-            "nom"=>$this->nom,
-            "marque"=>$this->marque,
-            "description"=>$this->description
+            "name"=>$this->projectName,
+            "author"=>$this->author,
+            "description"=>$this->description,
+            "technologies"=>$this->projectTechnologiesList,
+            "link"=>$this->projectLink
         );
     }
 }

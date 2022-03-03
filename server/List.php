@@ -6,6 +6,6 @@ header('Content-Type: application/json; charset=utf-8');
 
 require_once("ProjectDAO.php");
 
-$listeCadeau = ProjectDAO::lister();
-echo json_encode($listeCadeau);
+$listProject = ProjectDAO::lister();
+echo json_encode($listProject);
 

@@ -5,19 +5,19 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                let listRecipe = [];
+                let listProject = [];
                 for (let position in data) {
-                    let recipe = new Project(data[position].recipeName,
-                        data[position].recipeCookingTime,
-                        data[position].recipeBakingTime,
-                        data[position].recipeIngredientsList,
-                        data[position].recipeStepsList,
+                    let project = new Project(data[position].projectName,
+                        data[position].author,
+                        data[position].description,
+                        data[position].projectTechnologiesList,
+                        data[position].projectLink,
                         data[position].id);
 
-                    console.log(recipe);
-                    listRecipe.push(recipe);
+                    console.log(project);
+                    listProject.push(project);
                 }
-                action(listRecipe);
+                action(listProject);
             });
     }
 
@@ -26,26 +26,26 @@
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                let recipe = new Project(data.recipeName,
-                    data.recipeCookingTime,
-                    data.recipeBakingTime,
-                    data.recipeIngredientsList,
-                    data.recipeStepsList,
+                let project = new Project(data.projectName,
+                    data.author,
+                    data.description,
+                    data.projectTechnologiesList,
+                    data.projectLink,
                     data.id);
-                action(recipe);
+                action(project);
             });
     }
 
 
-    add(recipe, action) {
-        console.log(JSON.stringify(recipe));
+    add(project, action) {
+        console.log(JSON.stringify(project));
         fetch(apiUrl.add,
             {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
-                body: "recipejson=" + JSON.stringify(recipe),
+                body: "projectjson=" + JSON.stringify(project),
                 mode: 'cors',
             })
             .then(response => response.text())

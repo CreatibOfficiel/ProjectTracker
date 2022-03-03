@@ -1,14 +1,14 @@
 ﻿class Application {
-  constructor(window, viewListRecipe, viewRecipe, viewAddRecipe, recipeDAO) {
+  constructor(window, viewListProject, viewProject, viewAddProject, projectDAO) {
     this.window = window;
 
-    this.viewListRecipe = viewListRecipe;
+    this.viewListProject = viewListProject;
 
-    this.viewRecipe = viewRecipe;
-    this.viewAddRecipe = viewAddRecipe;
-    this.viewAddRecipe.initializeAddRecipe(recipe => this.addRecipe(recipe));
+    this.viewProject = viewProject;
+    this.viewAddProject = viewAddProject;
+    this.viewAddProject.initializeAddProject(project => this.addProject(project));
 
-    this.recipeDAO = recipeDAO;
+    this.projectDAO = projectDAO;
 
     this.window.addEventListener("hashchange", () => this.dispatch());
 
@@ -20,41 +20,41 @@
 
     if (!hash) {
 
-      this.recipeDAO.getAll((listRecipe) => this.showNewListRecipe(listRecipe));
+      this.projectDAO.getAll((listProject) => this.showNewListProject(listProject));
 
     } else if (hash.match(/^#adding/)) {
 
-      this.viewAddRecipe.render();
+      this.viewAddProject.render();
 
     } else {
-      let navigation = hash.match(/^#recipe\/([0-9]+)/);
-      let idRecipe = navigation[1];
+      let navigation = hash.match(/^#project\/([0-9]+)/);
+      let idProject = navigation[1];
 
-      this.recipeDAO.getById(idRecipe, (recipe) => this.showNewRecipe(recipe));
+      this.projectDAO.getById(idProject, (project) => this.showNewProject(project));
     }
   }
 
-  showNewListRecipe(listRecipe) {
-    console.log(listRecipe);
-    this.viewListRecipe.initializeListRecipe(listRecipe);
+  showNewListProject(listProject) {
+    console.log(listProject);
+    this.viewListProject.initializeListProject(listProject);
     // document.getElementById("loader").style.display = "none";
-    this.viewListRecipe.render();
+    this.viewListProject.render();
   }
 
-  showNewRecipe(recipe) {
-    console.log(recipe);
-    this.viewRecipe.initializeRecipe(recipe);
-    this.viewRecipe.render();
+  showNewProject(project) {
+    console.log(project);
+    this.viewProject.initializeProject(project);
+    this.viewProject.render();
   }
 
-  addRecipe(recipe) {
-    this.recipeDAO.add(recipe, () => this.showListRecipe());
+  addProject(project) {
+    this.projectDAO.add(project, () => this.showListProject());
   }
 
-  showListRecipe() {
+  showListProject() {
     this.window.location.hash = "#";
   }
 }
 
-new Application(window, new ViewListRecipe(), new ViewRecipe(), new ViewAddRecipe(), new ProjectDAO());
+new Application(window, new ViewListProject(), new ViewProject(), new ViewAddProject(), new ProjectDAO());
 

@@ -13,30 +13,30 @@ exports.handler = async (event) => {
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: 'You must give a recipe id'
+        body: 'You must give a project id'
     };
     if (id == null) {
         return response;
     }
 
     const params = {
-        Bucket: "recipe-cegep",
-        Key: "list-recipe.json",
+        Bucket: "project-cegep",
+        Key: "list-project.json",
     };
 
     const data = await s3.getObject(params).promise();
     console.log("Raw text:\n" + data.Body.toString('utf-8'));
-    const listRecipeJson = data.Body.toString('utf-8');
-    const listRecipe = JSON.parse(listRecipeJson);
+    const listProjectJson = data.Body.toString('utf-8');
+    const listProject = JSON.parse(listProjectJson);
 
-    let recipe = listRecipe.find(recipe => recipe.id == id);
+    let project = listProject.find(project => project.id == id);
 
     response = {
         statusCode: 200,
         headers: {
             "Access-Control-Allow-Origin" : "*"
         },
-        body: JSON.stringify(recipe).toString('utf-8')
+        body: JSON.stringify(project).toString('utf-8')
     };
 
     return response;
