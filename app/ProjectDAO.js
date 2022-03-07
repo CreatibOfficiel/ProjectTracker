@@ -12,11 +12,11 @@
                 data = data == null ? null : JSON.parse(data)
                 let listProject = [];
                 for(let position in data){
-                    let project = new Project(data[position].projectName,
+                    let project = new Project(data[position].project_name,
                         data[position].author,
-                        data[position].description,
-                        data[position].projectTechnologiesList,
-                        data[position].projectLink,
+                        data[position].project_description,
+                        data[position].project_tech,
+                        data[position].project_link,
                         data[position].id);
 
                     console.log(project);
@@ -31,11 +31,11 @@
             .then(response => response.json())
             .then(data =>
             {
-                let project = new Project(data.projectName,
+                let project = new Project(data.project_name,
                     data.author,
-                    data.description,
-                    data.projectTechnologiesList,
-                    data.projectLink,
+                    data.project_description,
+                    data.project_tech,
+                    data.project_link,
                     data.id);
                 action(project);
             });

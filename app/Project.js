@@ -1,10 +1,10 @@
 ﻿class Project {
-  constructor(projectName, author, description, projectTechnologiesList, projectLink, id = null) {
-    this.projectName = projectName;
+  constructor(project_name, author, project_description, project_tech, project_link, id = null) {
+    this.project_name = project_name;
     this.author = author;
-    this.description = description;
-    this.projectTechnologiesList = projectTechnologiesList;
-    this.projectLink = projectLink;
+    this.project_description = project_description;
+    this.project_tech = project_tech;
+    this.project_link = project_link;
     this.id = id;
   }
 }
