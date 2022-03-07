@@ -1,6 +1,6 @@
 ﻿class ProjectDAO {
     constructor(){
-        this.URL = 'http://3.224.6.201/'
+        this.URL = 'http://18.235.111.182/'
     }
 
     getAll(action){

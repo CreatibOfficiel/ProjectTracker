@@ -7,7 +7,6 @@ dist
 *.tgz
 *.log
 *.env
-/app/apiURL.js
 
 #intelliJ
 .idea

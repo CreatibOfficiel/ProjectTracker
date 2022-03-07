@@ -9,7 +9,7 @@ class Accesseur
     public static function initialiser()
     {
         $base = 'app-liste';
-        $hote = 'ec2-34-234-85-178.compute-1.amazonaws.com';
+        $hote = 'app-liste.colgz3q3rmtd.us-east-1.rds.amazonaws.com';
         $usager = 'admin';
         $motDePasse = '7E&TpAPhoSM344YX';
         $nomDeSourceDeDonnees = 'mysql:dbname=' . $base . ';host=' . $hote;
@@ -50,11 +50,11 @@ class projectDAO extends Accesseur implements projectSQL
         projectDAO::initialiser();
 
         $demandeAjoutProject = projectDAO::$baseDeDonnees->prepare(projectDAO::SQL_AJOUTER);
-        $demandeAjoutProject->bindValue(':name', $project->name, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':project_name', $project->name, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':author', $project->author, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':description', $project->description, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':technologies', $project->technologies, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':link', $project->link, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':project_description', $project->description, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':project_tech', $project->technologies, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':project_link', $project->link, PDO::PARAM_STR);
         $demandeAjoutProject->execute();
         return projectDAO::$baseDeDonnees->lastInsertId();
     }

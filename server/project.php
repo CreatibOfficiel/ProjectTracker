@@ -4,11 +4,11 @@ class project implements JsonSerializable
     public static $filtres =
         array(
             'id' => FILTER_VALIDATE_INT,
-            'name' => FILTER_SANITIZE_ENCODED,
+            'project_name' => FILTER_SANITIZE_ENCODED,
             'author' => FILTER_SANITIZE_ENCODED,
-            'description' => FILTER_SANITIZE_ENCODED,
-            'technologies' => FILTER_SANITIZE_ENCODED,
-            'link' => FILTER_SANITIZE_ENCODED
+            'project_description' => FILTER_SANITIZE_ENCODED,
+            'project_tech' => FILTER_SANITIZE_ENCODED,
+            'project_link' => FILTER_SANITIZE_ENCODED
         );
 
     protected $id;
@@ -22,11 +22,11 @@ class project implements JsonSerializable
     {
         $tableau = filter_var_array((array) $projectObjet, project::$filtres);
         $this->id = $tableau['id'];
-        $this->projectName = $tableau['name'];
         $this->author = $tableau['author'];
-        $this->description = $tableau['description'];
-        $this->projectTechnologiesList = $tableau['technologies'];
-        $this->projectLink = $tableau['link'];
+        $this->projectName = $tableau['project_name'];
+        $this->description = $tableau['project_description'];
+        $this->projectTechnologiesList = $tableau['project_tech'];
+        $this->projectLink = $tableau['project_link'];
     }
 
     public function __set($propriete, $valeur)
@@ -36,19 +36,19 @@ class project implements JsonSerializable
             case 'id':
                 $this->id = $valeur;
                 break;
-            case 'name':
+            case 'project_name':
                 $this->projectName = $valeur;
                 break;
             case 'author':
                 $this->author = $valeur;
                 break;
-            case 'description':
+            case 'project_description':
                 $this->description = $valeur;
                 break;
-            case 'technologies':
+            case 'project_tech':
                 $this->projectTechnologiesList = $valeur;
                 break;
-            case 'link':
+            case 'project_link':
                 $this->projectLink = $valeur;
                 break;
         }
