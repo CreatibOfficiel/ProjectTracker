@@ -12,21 +12,21 @@ class project implements JsonSerializable
         );
 
     protected $id;
-    protected $projectName;
+    protected $project_name;
     protected $author;
-    protected $description;
-    protected $projectTechnologiesList;
-    protected $projectLink;
+    protected $project_description;
+    protected $project_tech;
+    protected $project_link;
 
     public function __construct($projectObjet)
     {
         $tableau = filter_var_array((array) $projectObjet, project::$filtres);
         $this->id = $tableau['id'];
         $this->author = $tableau['author'];
-        $this->projectName = $tableau['project_name'];
-        $this->description = $tableau['project_description'];
-        $this->projectTechnologiesList = $tableau['project_tech'];
-        $this->projectLink = $tableau['project_link'];
+        $this->project_name = $tableau['project_name'];
+        $this->project_description = $tableau['project_description'];
+        $this->project_tech = $tableau['project_tech'];
+        $this->project_link = $tableau['project_link'];
     }
 
     public function __set($propriete, $valeur)
@@ -37,19 +37,19 @@ class project implements JsonSerializable
                 $this->id = $valeur;
                 break;
             case 'project_name':
-                $this->projectName = $valeur;
+                $this->project_name = $valeur;
                 break;
             case 'author':
                 $this->author = $valeur;
                 break;
             case 'project_description':
-                $this->description = $valeur;
+                $this->project_description = $valeur;
                 break;
             case 'project_tech':
-                $this->projectTechnologiesList = $valeur;
+                $this->project_tech = $valeur;
                 break;
             case 'project_link':
-                $this->projectLink = $valeur;
+                $this->project_link = $valeur;
                 break;
         }
     }
@@ -65,11 +65,11 @@ class project implements JsonSerializable
         //Define the fields we need
         return array(
             "id"=>$this->id,
-            "name"=>$this->projectName,
+            "name"=>$this->project_name,
             "author"=>$this->author,
-            "description"=>$this->description,
-            "technologies"=>$this->projectTechnologiesList,
-            "link"=>$this->projectLink
+            "description"=>$this->project_description,
+            "technologies"=>$this->project_tech,
+            "link"=>$this->project_link
         );
     }
 }

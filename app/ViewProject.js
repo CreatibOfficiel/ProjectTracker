@@ -11,13 +11,13 @@
   render() {
     document.getElementById("page").innerHTML = this.html;
 
-    document.getElementById("project-name-title").innerHTML = this.project.projectName;
+    document.getElementById("project-name-title").innerHTML = this.project.project_name;
 
     document.getElementById("project-view").innerHTML =
       document.getElementById("project-view").innerHTML
         .replace("{project-author}", this.project.author)
-        .replace("{project-description}", this.project.description)
-        .replace("{project-technologies-list}", this.project.projectTechnologiesList)
-        .replace("{project-link}", this.project.projectLink);
+        .replace("{project-description}", this.project.project_description)
+        .replace("{project-technologies-list}", this.project.project_tech)
+        .replace("{project-link}", this.project.project_link);
   }
 }
