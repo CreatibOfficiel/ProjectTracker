@@ -48,7 +48,6 @@ class projectDAO extends Accesseur implements projectSQL
     public static function ajouter($project)
     {
         projectDAO::initialiser();
-
         $demandeAjoutProject = projectDAO::$baseDeDonnees->prepare(projectDAO::SQL_AJOUTER);
         $demandeAjoutProject->bindValue(':project_name', $project->project_name, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':author', $project->author, PDO::PARAM_STR);

@@ -22,7 +22,9 @@
     let technologies = document.getElementById("project-technologies-list").value;
     let link = document.getElementById("project-link").value;
 
-    this.addProject(new Project(name, author, description, technologies, link, null));
+    let p = new Project(name, author, description, technologies, link, null);
+    console.log(p);
+    this.addProject(p);
 
   }
 }

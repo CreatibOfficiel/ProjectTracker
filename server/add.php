@@ -10,6 +10,8 @@ $projectJSON = file_get_contents('php://input');
 $projectObjet = json_decode( $projectJSON );
 $project = new project($projectObjet);
 
+echo $project;
+
 $id = projectDAO::ajouter($project);
 echo $id;
 
