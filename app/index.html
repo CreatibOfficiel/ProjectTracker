@@ -9,6 +9,7 @@
   <script src="ViewProject.js"></script>
   <script src="ViewListProject.js"></script>
   <script src="ViewAddProject.js"></script>
+  <script src="ViewModifyProject.js"></script>
   <!--
   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
   Scripts loaded using the defer attribute will run in the order they appear
@@ -57,6 +58,7 @@
         </tr>
       </table>
       <div class="button-wrapper">
+        <a href="#modify" class="button">Modify</a>
         <a href="#" class="button">Back</a>
       </div>
     </script>
@@ -83,6 +85,36 @@
         <div class="form-row">
           <label for="project-link">Link</label>
           <textarea id="project-link"></textarea>
+        </div>
+        <div class="button-wrapper">
+          <button class="button" type="submit">Save</button>
+          <a class="button" href="#">Cancel</a>
+        </div>
+      </form>
+    </script>
+
+    <script type="plain/text" id="html-modifyView">
+      <h1>Add a new project</h1>
+      <form id="modifying-form">
+        <div class="form-row">
+          <label for="project-name">Project name</label>
+          <input type="text" id="project-name" value="{project-name}"/>
+        </div>
+        <div class="form-row">
+          <label for="project-author">Author</label>
+          <input id="project-author" value="{project-author}"/>
+        </div>
+        <div class="form-row">
+          <label for="project-description">Description</label>
+          <input id="description" value="{project-author}"/>
+        </div>
+        <div class="form-row">
+          <label for="project-technologies">Technologies list</label>
+          <textarea id="project-technology">{project-technology}</textarea>
+        </div>
+        <div class="form-row">
+          <label for="project-link">Link</label>
+          <textarea id="project-link">{project-link}</textarea>
         </div>
         <div class="button-wrapper">
           <button class="button" type="submit">Save</button>

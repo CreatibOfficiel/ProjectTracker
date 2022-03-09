@@ -1,12 +1,14 @@
 ﻿class Application {
-  constructor(window, viewListProject, viewProject, viewAddProject, projectDAO) {
+  constructor(window, viewListProject, viewProject, viewAddProject, viewModifyProject, projectDAO) {
     this.window = window;
 
     this.viewListProject = viewListProject;
 
     this.viewProject = viewProject;
     this.viewAddProject = viewAddProject;
+    this.viewModifyProject = viewModifyProject;
     this.viewAddProject.initializeAddProject(project => this.addProject(project));
+    this.viewModifyProject.initializeModifyProject(project => this.modifyProject(project));
 
     this.projectDAO = projectDAO;
 
@@ -25,6 +27,10 @@
     } else if (hash.match(/^#adding/)) {
 
       this.viewAddProject.render();
+
+    } else if (hash.match(/^#modify/)) {
+
+      this.viewModifyProject.render();
 
     } else {
       let navigation = hash.match(/^#project\/([0-9]+)/);
@@ -51,10 +57,14 @@
     this.projectDAO.add(project, () => this.showListProject());
   }
 
+  modifyProject(project) {
+    this.projectDAO.modify(project, () => this.showListProject());
+  }
+
   showListProject() {
     this.window.location.hash = "#";
   }
 }
 
-new Application(window, new ViewListProject(), new ViewProject(), new ViewAddProject(), new ProjectDAO());
+new Application(window, new ViewListProject(), new ViewProject(), new ViewAddProject(), new ViewModifyProject(), new ProjectDAO());
 

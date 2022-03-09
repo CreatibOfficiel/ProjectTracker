@@ -42,7 +42,6 @@
     }
 
     add(project, action) {
-        console.log(JSON.stringify(project));
         fetch(this.URL + 'add.php',
             {
                 method: 'POST',
@@ -55,6 +54,21 @@
             .then(data => {
                 console.log('Détail:', data);
                 action();
+            });
+    }
+
+    modify(project, action) {
+        fetch(this.URL + 'search-by-id.php' + '?project_id=' + id)
+            .then(response => response.json())
+            .then(data => {
+                let project = new Project(
+                    data.name,
+                    data.author,
+                    data.description,
+                    data.technology,
+                    data.link,
+                    data.id);
+                action(project);
             });
     }
 }
