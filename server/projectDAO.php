@@ -8,10 +8,10 @@ class Accesseur
 
     public static function initialiser()
     {
-        $base = 'app-liste';
-        $hote = 'app-liste.colgz3q3rmtd.us-east-1.rds.amazonaws.com';
+        $base = 'project-tracker';
+        $hote = 'db-projecttracker.c5edxctf0dwc.us-east-1.rds.amazonaws.com';
         $usager = 'admin';
-        $motDePasse = '7E&TpAPhoSM344YX';
+        $motDePasse = 'KhWjc7oNd!';
         $nomDeSourceDeDonnees = 'mysql:dbname=' . $base . ';host=' . $hote;
         projectDAO::$baseDeDonnees = new PDO($nomDeSourceDeDonnees, $usager, $motDePasse);
         projectDAO::$baseDeDonnees->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -28,6 +28,7 @@ class projectDAO extends Accesseur implements projectSQL
         $demandeListeProject->execute();
         $listeProjectObjet = $demandeListeProject->fetchAll(PDO::FETCH_OBJ);
         //$contratsTableau = $demandeListeProject->fetchAll(PDO::FETCH_ASSOC);
+        return $listeProjectObjet;
         $listProject = null;
         foreach($listeProjectObjet as $projectObjet) $listProject[] = new project($projectObjet);
         return $listProject;
@@ -48,12 +49,13 @@ class projectDAO extends Accesseur implements projectSQL
     public static function ajouter($project)
     {
         projectDAO::initialiser();
+
         $demandeAjoutProject = projectDAO::$baseDeDonnees->prepare(projectDAO::SQL_AJOUTER);
-        $demandeAjoutProject->bindValue(':project_name', $project->project_name, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':name', $project->name, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':author', $project->author, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':project_description', $project->project_description, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':project_tech', $project->project_tech, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':project_link', $project->project_link, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':description', $project->description, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':technology', $project->technologies, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':link', $project->link, PDO::PARAM_STR);
         $demandeAjoutProject->execute();
         return projectDAO::$baseDeDonnees->lastInsertId();
     }
