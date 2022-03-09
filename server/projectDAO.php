@@ -60,6 +60,14 @@ class projectDAO extends Accesseur implements projectSQL
 
     public static function modifier($project)
     {
-        //TODO
+        projectDAO::initialiser();
+        $demandeModifierProject = projectDAO::$baseDeDonnees->prepare(projectDAO::SQL_MODIFIER);
+        $demandeModifierProject->bindValue(':name', $project->project_name, PDO::PARAM_STR);
+        $demandeModifierProject->bindValue(':author', $project->project_author, PDO::PARAM_STR);
+        $demandeModifierProject->bindValue(':description', $project->project_description, PDO::PARAM_STR);
+        $demandeModifierProject->bindValue(':technology', $project->project_tech, PDO::PARAM_STR);
+        $demandeModifierProject->bindValue(':link', $project->project_link, PDO::PARAM_STR);
+        $demandeModifierProject->bindValue(':id', $project->project_id, PDO::PARAM_INT);
+        $demandeModifierProject->execute();
     }
 }
