@@ -12,11 +12,11 @@
                 let listProject = [];
                 for (let position in data) {
                     let project = new Project(data[position].project_name,
-                        data[position].author,
+                        data[position].project_author,
                         data[position].project_description,
                         data[position].project_tech,
                         data[position].project_link,
-                        data[position].id);
+                        data[position].project_id);
 
                     console.log(project);
                     listProject.push(project);
@@ -26,15 +26,16 @@
     }
 
     getById(id, action) {
-        fetch(this.URL + 'search-by-id.php' + '?id=' + id)
+        fetch(this.URL + 'search-by-id.php' + '?project_id=' + id)
             .then(response => response.json())
             .then(data => {
-                let project = new Project(data.project_name,
-                    data.author,
+                let project = new Project(
+                    data.project_name,
+                    data.project_author,
                     data.project_description,
                     data.project_tech,
                     data.project_link,
-                    data.id);
+                    data.project_id);
                 action(project);
             });
     }

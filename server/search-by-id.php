@@ -8,5 +8,5 @@ require_once "project.php";
 require_once("projectDAO.php");
 
 $project = new project($_GET);
-$project = projectDAO::chercherParId($project->id);
+$project = projectDAO::chercherParId($project->project_id);
 echo json_encode($project);
