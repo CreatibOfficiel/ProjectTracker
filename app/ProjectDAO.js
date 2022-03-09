@@ -1,17 +1,16 @@
 ﻿class ProjectDAO {
-    constructor(){
-        this.URL = 'http://18.235.111.182/'
+    constructor() {
+        this.URL = 'http://54.161.121.202/'
     }
 
-    getAll(action){
+    getAll(action) {
         fetch(this.URL + 'list.php')
             .then(response => response.text())
-            .then(data =>
-            {
+            .then(data => {
                 console.log(data);
                 data = data == null ? null : JSON.parse(data)
                 let listProject = [];
-                for(let position in data){
+                for (let position in data) {
                     let project = new Project(data[position].project_name,
                         data[position].author,
                         data[position].project_description,
@@ -26,11 +25,10 @@
             });
     }
 
-    getById(id, action){
+    getById(id, action) {
         fetch(this.URL + 'search-by-id.php' + '?id=' + id)
             .then(response => response.json())
-            .then(data =>
-            {
+            .then(data => {
                 let project = new Project(data.project_name,
                     data.author,
                     data.project_description,
@@ -41,18 +39,17 @@
             });
     }
 
-    add(project, action){
+    add(project, action) {
         fetch(this.URL + 'add.php',
             {
                 method: 'POST',
                 headers: {
-                    'Content-Type':'application/x-www-form-urlencoded'
+                    'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: JSON.stringify(project),
             })
             .then(response => response.text())
-            .then(data =>
-            {
+            .then(data => {
                 console.log('Détail:', data);
                 action();
             });
