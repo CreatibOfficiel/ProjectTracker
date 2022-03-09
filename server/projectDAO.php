@@ -28,7 +28,6 @@ class projectDAO extends Accesseur implements projectSQL
         $demandeListeProject->execute();
         $listeProjectObjet = $demandeListeProject->fetchAll(PDO::FETCH_OBJ);
         //$contratsTableau = $demandeListeProject->fetchAll(PDO::FETCH_ASSOC);
-        return $listeProjectObjet;
         $listProject = null;
         foreach($listeProjectObjet as $projectObjet) $listProject[] = new project($projectObjet);
         return $listProject;
@@ -49,13 +48,12 @@ class projectDAO extends Accesseur implements projectSQL
     public static function ajouter($project)
     {
         projectDAO::initialiser();
-
         $demandeAjoutProject = projectDAO::$baseDeDonnees->prepare(projectDAO::SQL_AJOUTER);
-        $demandeAjoutProject->bindValue(':name', $project->name, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':name', $project->project_name, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':author', $project->author, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':description', $project->description, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':technology', $project->technologies, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':link', $project->link, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':description', $project->project_description, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':tech', $project->project_tech, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':link', $project->project_link, PDO::PARAM_STR);
         $demandeAjoutProject->execute();
         return projectDAO::$baseDeDonnees->lastInsertId();
     }

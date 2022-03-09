@@ -3,9 +3,9 @@ class project implements JsonSerializable
 {
     public static $filtres =
         array(
-            'id' => FILTER_VALIDATE_INT,
+            'project_id' => FILTER_VALIDATE_INT,
             'project_name' => FILTER_SANITIZE_ENCODED,
-            'author' => FILTER_SANITIZE_ENCODED,
+            'project_author' => FILTER_SANITIZE_ENCODED,
             'project_description' => FILTER_SANITIZE_ENCODED,
             'project_tech' => FILTER_SANITIZE_ENCODED,
             'project_link' => FILTER_SANITIZE_ENCODED
@@ -21,8 +21,8 @@ class project implements JsonSerializable
     public function __construct($projectObjet)
     {
         $tableau = filter_var_array((array) $projectObjet, project::$filtres);
-        $this->id = $tableau['id'];
-        $this->author = $tableau['author'];
+        $this->id = $tableau['project_id'];
+        $this->author = $tableau['project_author'];
         $this->project_name = $tableau['project_name'];
         $this->project_description = $tableau['project_description'];
         $this->project_tech = $tableau['project_tech'];
@@ -33,13 +33,13 @@ class project implements JsonSerializable
     {
         switch($propriete)
         {
-            case 'id':
+            case 'project_id':
                 $this->id = $valeur;
                 break;
             case 'project_name':
                 $this->project_name = $valeur;
                 break;
-            case 'author':
+            case 'project_author':
                 $this->author = $valeur;
                 break;
             case 'project_description':
