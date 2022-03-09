@@ -17,7 +17,7 @@
 
     for (var numberProject in this.listProjectGiven) {
       let listProjectItemHTMLReplacement = listProjectHTML;
-      listProjectItemHTMLReplacement = listProjectItemHTMLReplacement.replace("{project.id}", this.listProjectGiven[numberProject].id);
+      listProjectItemHTMLReplacement = listProjectItemHTMLReplacement.replace("{project.id}", this.listProjectGiven[numberProject].project_id);
       listProjectItemHTMLReplacement = listProjectItemHTMLReplacement.replace("{project.name}", this.listProjectGiven[numberProject].project_name);
       listProjectHTMLReplacement += listProjectItemHTMLReplacement;
     }

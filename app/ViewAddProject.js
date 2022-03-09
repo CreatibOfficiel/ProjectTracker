@@ -25,6 +25,5 @@
     let p = new Project(name, author, description, technologies, link, null);
     console.log(p);
     this.addProject(p);
-
   }
 }

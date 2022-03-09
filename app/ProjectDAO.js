@@ -41,6 +41,7 @@
     }
 
     add(project, action) {
+        console.log(JSON.stringify(project));
         fetch(this.URL + 'add.php',
             {
                 method: 'POST',

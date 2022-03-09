@@ -15,7 +15,7 @@
 
     document.getElementById("project-view").innerHTML =
       document.getElementById("project-view").innerHTML
-        .replace("{project-author}", this.project.author)
+        .replace("{project-author}", this.project.project_author)
         .replace("{project-description}", this.project.project_description)
         .replace("{project-technologies-list}", this.project.project_tech)
         .replace("{project-link}", this.project.project_link);
