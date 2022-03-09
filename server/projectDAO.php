@@ -52,7 +52,7 @@ class projectDAO extends Accesseur implements projectSQL
         $demandeAjoutProject->bindValue(':name', $project->project_name, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':author', $project->project_author, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':description', $project->project_description, PDO::PARAM_STR);
-        $demandeAjoutProject->bindValue(':techtechnology', $project->project_tech, PDO::PARAM_STR);
+        $demandeAjoutProject->bindValue(':technology', $project->project_tech, PDO::PARAM_STR);
         $demandeAjoutProject->bindValue(':link', $project->project_link, PDO::PARAM_STR);
         $demandeAjoutProject->execute();
         return projectDAO::$baseDeDonnees->lastInsertId();
