@@ -4,9 +4,9 @@ header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: application/json; charset=utf-8');
 
-require_once "project.php";
-require_once("projectDAO.php");
+require_once "Project.php";
+require_once("ProjectDAO.php");
 
-$project = new project($_GET);
-$project = projectDAO::chercherParId($project->project_id);
+$project = new Project($_GET);
+$project = ProjectDAO::chercherParId($project->project_id);
 echo json_encode($project);

@@ -1,5 +1,5 @@
 <?php
-class project implements JsonSerializable
+class Project implements JsonSerializable
 {
     public static $filtres =
         array(
