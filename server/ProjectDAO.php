@@ -1,5 +1,5 @@
 <?php
-require_once("project.php");
+require_once("Project.php");
 require_once("projectSQL.php");
 
 class Accesseur
