@@ -4,10 +4,10 @@ class Project implements JsonSerializable
     public static $filtres =
         array(
             'project_id' => FILTER_VALIDATE_INT,
-            'project_name' => FILTER_SANITIZE_ENCODED,
-            'project_author' => FILTER_SANITIZE_ENCODED,
-            'project_description' => FILTER_SANITIZE_ENCODED,
-            'project_tech' => FILTER_SANITIZE_ENCODED,
+            'project_name' => FILTER_SANITIZE_STRING,
+            'project_author' => FILTER_SANITIZE_STRING,
+            'project_description' => FILTER_SANITIZE_STRING,
+            'project_tech' => FILTER_SANITIZE_STRING,
             'project_link' => FILTER_SANITIZE_ENCODED
         );
 
