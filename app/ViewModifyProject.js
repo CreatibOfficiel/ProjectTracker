@@ -2,6 +2,7 @@
   constructor() {
     this.html = document.getElementById("html-modifyView").innerHTML;
     this.modifyProject = null;
+    this.projectId = null;
   }
 
   initializeModifyProject(newProject) {
@@ -9,17 +10,18 @@
   }
 
   render(project) {
+    this.projectId = project.project_id;
+
     document.getElementById("page").innerHTML = this.html;
     document.getElementById("modifying-form").addEventListener("submit", evenement => this.save(evenement));
 
-    console.log(project);
     document.getElementById("modifying-form").innerHTML =
       document.getElementById("modifying-form").innerHTML
-        .replace("{project-name}", this.modifyProject.project_name)
-        .replace("{project-author}", this.modifyProject.project_author)
-        .replace("{project-description}", this.modifyProject.project_description)
-        .replace("{project-technology}", this.modifyProject.project_tech)
-        .replace("{project-link}", this.modifyProject.project_link);
+        .replace("{project-name}", project.project_name)
+        .replace("{project-author}", project.project_author)
+        .replace("{project-description}", project.project_description)
+        .replace("{project-technology}", project.project_tech)
+        .replace("{project-link}", project.project_link);
   }
 
   save(evenement) {
@@ -31,8 +33,8 @@
     let technology = document.getElementById("project-technology").value;
     let link = document.getElementById("project-link").value;
 
-    let p = new Project(name, author, description, technology, link, null);
+    let p = new Project(name, author, description, technology, link, this.projectId);
     console.log(p);
-    //this.modifyProject(p);
+    this.modifyProject(p);
   }
 }

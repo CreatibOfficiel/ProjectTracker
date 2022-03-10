@@ -29,7 +29,6 @@
       this.viewAddProject.render();
 
     } else if (hash.split('/')[0].match(/^#modify/)) {
-      console.log("modify")
       let navigation = hash.match(/^#modify\/([0-9]+)/);
       let idProject = navigation[1];
 
@@ -56,8 +55,8 @@
 
   showModifyProject(project) {
     console.log(project);
-    this.viewModifyProject.initializeModifyProject(project);
-    this.viewModifyProject.render();
+    this.viewModifyProject.initializeModifyProject(project => this.modifyProject(project));
+    this.viewModifyProject.render(project);
   }
 
   addProject(project) {
@@ -65,7 +64,7 @@
   }
 
   modifyProject(project) {
-    this.projectDAO.getById(project, () => this.showListProject());
+    this.projectDAO.modify(project, () => this.showModifyProject());
   }
 
   showListProject() {

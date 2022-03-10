@@ -58,17 +58,19 @@
     }
 
     modify(project, action) {
-        fetch(this.URL + 'search-by-id.php' + '?project_id=' + id)
-            .then(response => response.json())
+        console.log(project);
+        fetch(this.URL + 'modify.php',
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: JSON.stringify(project),
+            })
+            .then(response => response.text())
             .then(data => {
-                let project = new Project(
-                    data.name,
-                    data.author,
-                    data.description,
-                    data.technology,
-                    data.link,
-                    data.id);
-                action(project);
+                console.log('Détail:', data);
+                // action();
             });
     }
 }

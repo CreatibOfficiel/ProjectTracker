@@ -19,7 +19,7 @@
     let name = document.getElementById("project-name").value;
     let author = document.getElementById("author").value;
     let description = document.getElementById("description").value;
-    let technologies = document.getElementById("project-technologies-list").value;
+    let technologies = document.getElementById("project-technology").value;
     let link = document.getElementById("project-link").value;
 
     let p = new Project(name, author, description, technologies, link, null);
