@@ -28,10 +28,12 @@
 
       this.viewAddProject.render();
 
-    } else if (hash.match(/^#modify/)) {
+    } else if (hash.split('/')[0].match(/^#modify/)) {
+      console.log("modify")
+      let navigation = hash.match(/^#modify\/([0-9]+)/);
+      let idProject = navigation[1];
 
-      this.viewModifyProject.render();
-
+      this.projectDAO.getById(idProject, (project) => this.showModifyProject(project));
     } else {
       let navigation = hash.match(/^#project\/([0-9]+)/);
       let idProject = navigation[1];
@@ -43,7 +45,6 @@
   showNewListProject(listProject) {
     console.log(listProject);
     this.viewListProject.initializeListProject(listProject);
-    // document.getElementById("loader").style.display = "none";
     this.viewListProject.render();
   }
 
@@ -51,6 +52,12 @@
     console.log(project);
     this.viewProject.initializeProject(project);
     this.viewProject.render();
+  }
+
+  showModifyProject(project) {
+    console.log(project);
+    this.viewModifyProject.initializeModifyProject(project);
+    this.viewModifyProject.render();
   }
 
   addProject(project) {

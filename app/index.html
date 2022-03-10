@@ -50,7 +50,7 @@
         </tr>
         <tr>
           <td class="row-name">Project technologies</td>
-          <td class="row-value">{project-technologies-list}</td>
+          <td class="row-value">{project-technology}</td>
         </tr>
         <tr>
           <td class="row-name">Project link</td>
@@ -58,7 +58,7 @@
         </tr>
       </table>
       <div class="button-wrapper">
-        <a href="#modify" class="button">Modify</a>
+        <a href="#modify/{project-id}" class="button">Modify</a>
         <a href="#" class="button">Back</a>
       </div>
     </script>
@@ -79,8 +79,8 @@
           <input id="description"/>
         </div>
         <div class="form-row">
-          <label for="project-technologies">Technologies list</label>
-          <textarea id="project-technologies-list"></textarea>
+          <label for="project-technology">Technologies list</label>
+          <textarea id="project-technology"></textarea>
         </div>
         <div class="form-row">
           <label for="project-link">Link</label>
@@ -94,7 +94,7 @@
     </script>
 
     <script type="plain/text" id="html-modifyView">
-      <h1>Add a new project</h1>
+      <h1>Modify project</h1>
       <form id="modifying-form">
         <div class="form-row">
           <label for="project-name">Project name</label>
@@ -106,7 +106,7 @@
         </div>
         <div class="form-row">
           <label for="project-description">Description</label>
-          <input id="description" value="{project-author}"/>
+          <input id="description" value="{project-description}"/>
         </div>
         <div class="form-row">
           <label for="project-technologies">Technologies list</label>
