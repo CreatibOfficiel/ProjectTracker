@@ -69,8 +69,7 @@
             })
             .then(response => response.text())
             .then(data => {
-                console.log('Détail:', data);
-                // action();
+                action();
             });
     }
 }

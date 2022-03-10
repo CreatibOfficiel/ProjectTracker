@@ -64,7 +64,7 @@
   }
 
   modifyProject(project) {
-    this.projectDAO.modify(project, () => this.showModifyProject());
+    this.projectDAO.modify(project, () => this.showListProject());
   }
 
   showListProject() {
