@@ -36,10 +36,6 @@ html {
 	align-items: center;
 	text-align: center;
 	background-color: var(--theme-color-bg2);
-	background-image: url("images/logo_nobg@1x.png");
-	background-repeat: no-repeat;
-	background-position: bottom right;
-	background-size: 300px;
 	h1 {
 		color: var(--theme-color-red);
 		font-family: 'BebasNeueRegular', sans-serif;
@@ -87,7 +83,7 @@ html {
 	background-color: var(--theme-color-5);
 	color: var(--theme-color-2);
 	padding: 5%;
-	min-height: 100vh;
+	min-height: calc(100vh - 58px);
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
