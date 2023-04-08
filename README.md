@@ -19,7 +19,7 @@ Clément Gehin
 
 ## Description
 
-Non disponible pour l'instant.
+Ce projet est une initiation à l'utilisation d'Electron. L'objectif est très simple, faire une application pour suivre ses projets en cours.
 
 ## Installation
 
